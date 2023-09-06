@@ -49,8 +49,8 @@ export const Wire = ({ className }: HTMLAttributes<SVGElement>) => {
       <path
         d="M109.398 6.12235C127.37 -3.81898 146.791 1.45045 153.465 14.307C160.138 27.1636 154.195 43.9948 140.438 52.1164C126.68 60.238 105.767 54.9998 84.9212 43.464C64.0752 31.9281 32.2412 6.42016 18.8175 24.185C6.90871 40.719 41.9332 68.4495 29.2664 82.7049C23.187 88.4974 11.1379 88.2645 0.968295 80.3398"
         className="stroke-black dark:stroke-white"
-        stroke-width="1.5"
-        stroke-miterlimit="10"
+        strokeWidth="1.5"
+        strokeMiterlimit="10"
       />
     </svg>
   );

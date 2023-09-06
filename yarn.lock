@@ -1106,6 +1106,11 @@
   resolved "https://registry.yarnpkg.com/@vegaprotocol/tailwindcss-config/-/tailwindcss-config-0.0.4.tgz#164b02935bd0f345eb06da50d81a01b22722139c"
   integrity sha512-bRJ+XAxnicbjqlr/H/sjlJWvxARuqfSOYOObiCj8KT5lT8B5Qz3wMdNOae2QJ4eptVlhL8WclT9r3C66hLwbBQ==
 
+"@vegaprotocol/types@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@vegaprotocol/types/-/types-0.0.5.tgz#8a7318b1905061a5578609f3e936cf86381b4b86"
+  integrity sha512-Bm8gc+M8KA4f5vWLwhRkxx9YDhnjJUIddVwRNmNIiXp2nIKy7YGj9aRdFQUjgpT3UEedJAK/B6GR7yd+/tc5Xg==
+
 "@vegaprotocol/ui-toolkit@^0.12.8":
   version "0.12.8"
   resolved "https://registry.yarnpkg.com/@vegaprotocol/ui-toolkit/-/ui-toolkit-0.12.8.tgz#6ffc666a1685acf01df238fe123e434244d137ad"
