@@ -8,9 +8,9 @@ export const Layout = ({
   return (
     <div
       className={classNames(
-        "max-w-[1440px] h-full overflow-hidden",
+        "max-w-[1440px]",
         "mx-auto px-16 md:px-32 pb-32",
-        "h-full relative z-0",
+        "relative z-0",
         className
       )}
     >

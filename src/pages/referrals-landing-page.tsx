@@ -30,11 +30,11 @@ export const ReferralsLandingPage = () => (
       <div className="mb-5 flex flex-row justify-between items-baseline">
         <h2 className="text-2xl">Staking multipliers</h2>
       </div>
-      <div className="mb-20 flex flex-col md:flex-row gap-5">
+      <div className="mb-20 flex flex-col jjustify-items-stretch md:flex-row gap-5">
         <div
           className={classNames(
             "overflow-hidden",
-            "border rounded-md w-full h-max",
+            "border rounded-md w-full",
             BORDER_COLOR
           )}
         >
@@ -55,7 +55,7 @@ export const ReferralsLandingPage = () => (
         <div
           className={classNames(
             "overflow-hidden",
-            "border rounded-md w-full h-max",
+            "border rounded-md w-full",
             BORDER_COLOR
           )}
         >
@@ -75,7 +75,7 @@ export const ReferralsLandingPage = () => (
         <div
           className={classNames(
             "overflow-hidden",
-            "border rounded-md w-full h-max",
+            "border rounded-md w-full",
             BORDER_COLOR
           )}
         >
