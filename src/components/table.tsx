@@ -1,6 +1,7 @@
 import { Tooltip, VegaIcon, VegaIconNames } from "@vegaprotocol/ui-toolkit";
 import classNames from "classnames";
 import { HTMLAttributes } from "react";
+import { BORDER_COLOR, GRADIENT } from "../constants";
 
 type TableColumnDefinition = {
   displayName?: string;
@@ -13,22 +14,21 @@ type TableProps = {
   columns: TableColumnDefinition[];
   data: Record<TableColumnDefinition["name"] | "className", React.ReactNode>[];
   noHeader?: boolean;
+  noCollapse?: boolean;
 };
 
-const BORDER_COLOR = "border-vega-clight-500 dark:border-vega-cdark-500";
 const INNER_BORDER_STYLE = `border-b ${BORDER_COLOR}`;
-const GRADIENT =
-  "bg-gradient-to-b from-vega-clight-800 dark:from-vega-cdark-800 to-transparent";
 
 export const Table = ({
   columns,
   data,
   noHeader = false,
+  noCollapse = false,
   className,
   ...props
 }: TableProps & HTMLAttributes<HTMLTableElement>) => {
   const header = (
-    <thead>
+    <thead className={classNames({ "max-md:hidden": !noCollapse })}>
       <tr>
         {columns.map(({ displayName, name, tooltip }) => (
           <th
@@ -68,20 +68,45 @@ export const Table = ({
       {!noHeader && header}
       <tbody>
         {data.map((d, i) => (
-          <tr key={i} className={classNames(d["className"] as string)}>
-            {columns.map(({ name, className }) => (
+          <tr
+            key={i}
+            className={classNames(d["className"] as string, {
+              "max-md:flex flex-col w-full": !noCollapse,
+            })}
+          >
+            {columns.map(({ name, displayName, className }, j) => (
               <td
                 className={classNames(
                   "px-5 py-3 text-base",
+                  {
+                    "max-md:flex max-md:flex-col max-md:justify-between":
+                      !noCollapse,
+                  },
                   INNER_BORDER_STYLE,
                   {
-                    "border-none": i === data.length - 1,
+                    "md:border-none": !noCollapse && i === data.length - 1,
+                    "max-md:border-none":
+                      !noCollapse &&
+                      i === data.length - 1 &&
+                      j === columns.length - 1,
                   },
                   className
                 )}
                 key={`${i}-${name}`}
               >
-                {d[name]}
+                {/** display column name in mobile view */}
+                {!noCollapse &&
+                  !noHeader &&
+                  displayName &&
+                  displayName.length > 0 && (
+                    <span
+                      aria-hidden
+                      className="md:hidden  font-mono text-xs px-0 text-vega-clight-100 dark:text-vega-cdark-100"
+                    >
+                      {displayName}
+                    </span>
+                  )}
+                <span>{d[name]}</span>
               </td>
             ))}
           </tr>

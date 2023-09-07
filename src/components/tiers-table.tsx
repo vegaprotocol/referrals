@@ -21,8 +21,7 @@ export const TiersTable = () => (
         volume: "€10,000",
         epochs: "0",
         // ---
-        className:
-          "from-vega-pink-600 to-20%  bg-[linear-gradient(170deg,var(--tw-gradient-from),transparent_var(--tw-gradient-to-position))]",
+        className: "from-vega-pink-600 to-20%  bg-highlight",
       },
       {
         tier: "2",
@@ -30,8 +29,7 @@ export const TiersTable = () => (
         discount: "0.5%",
         volume: "€20,000",
         epochs: "7",
-        className:
-          "from-vega-purple-600 to-20%  bg-[linear-gradient(170deg,var(--tw-gradient-from),transparent_var(--tw-gradient-to-position))]",
+        className: "from-vega-purple-600 to-20%  bg-highlight",
       },
       {
         tier: "3",
@@ -39,8 +37,7 @@ export const TiersTable = () => (
         discount: "0.1%",
         volume: "€30,000",
         epochs: "31",
-        className:
-          "from-vega-blue-600 to-20%  bg-[linear-gradient(170deg,var(--tw-gradient-from),transparent_var(--tw-gradient-to-position))]",
+        className: "from-vega-blue-600 to-20%  bg-highlight",
       },
     ]}
   ></Table>

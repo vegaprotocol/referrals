@@ -9,7 +9,16 @@ export default {
   ],
   darkMode: "class",
   theme: {
-    extend: theme,
+    extend: {
+      ...theme,
+      backgroundImage: {
+        ...theme.backgroundImage,
+        rainbow:
+          "linear-gradient(103.47deg, #FF077F 1.68%, #8028FF 47.49%, #0075FF 100%)",
+        highlight:
+          "linear-gradient(170deg, var(--tw-gradient-from), transparent var(--tw-gradient-to-position))",
+      },
+    },
   },
   plugins, // [vegaCustomClasses]
 };

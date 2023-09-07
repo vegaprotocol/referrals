@@ -4,6 +4,7 @@ export const HowItWorksTable = () => (
   <Table
     className="bg-none bg-vega-clight-800 dark:bg-vega-cdark-800"
     noHeader
+    noCollapse
     columns={[{ name: "number", className: "px-0 pl-5" }, { name: "step" }]}
     data={[
       {

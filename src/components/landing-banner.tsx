@@ -1,14 +1,19 @@
+import classNames from "classnames";
 import { AnimatedDudeWithWire } from "./graphics/dude";
 
+const BANNER_BACKGROUND =
+  "bg-[url(sky.png)] bg-[40%_0px] bg-[length:1440px] bg-no-repeat  invert dark:invert-0";
+
 export const LandingBanner = () => (
-  <div className="relative min-h-[680px]">
-    {/** background image */}
-    <div className="absolute w-full h-[680px] bg-[url(assets/sky.png)] bg-[40%_0px] bg-[length:1440px] bg-no-repeat  invert dark:invert-0"></div>
-    <div className="max-w-[1440px] relative mx-auto px-32">
-      <div className="absolute top-64 right-[170px] md:right-[340px] max-sm:hidden">
+  <div className={classNames("relative min-h-[680px] ", BANNER_BACKGROUND)}>
+    <div className="max-w-[1440px] relative mx-auto px-16 md:px-32">
+      <div
+        aria-hidden
+        className="absolute top-64 right-[220px] md:right-[340px] max-sm:hidden"
+      >
         <AnimatedDudeWithWire />
       </div>
-      <div className="pt-32 w-[50%]">
+      <div className="pt-32 sm:w-[50%]">
         <h1 className="text-6xl font-alpha calt mb-10">
           Earn commission & stake rewards
         </h1>
