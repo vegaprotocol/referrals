@@ -21,7 +21,8 @@ export const TiersTable = () => (
         volume: "€10,000",
         epochs: "0",
         // ---
-        className: "from-vega-pink-600 to-20%  bg-highlight",
+        className:
+          "from-vega-pink-400 dark:from-vega-pink-600 to-20%  bg-highlight",
       },
       {
         tier: "2",
@@ -29,7 +30,8 @@ export const TiersTable = () => (
         discount: "0.5%",
         volume: "€20,000",
         epochs: "7",
-        className: "from-vega-purple-600 to-20%  bg-highlight",
+        className:
+          "from-vega-purple-400 dark:from-vega-purple-600 to-20%  bg-highlight",
       },
       {
         tier: "3",
@@ -37,7 +39,8 @@ export const TiersTable = () => (
         discount: "0.1%",
         volume: "€30,000",
         epochs: "31",
-        className: "from-vega-blue-600 to-20%  bg-highlight",
+        className:
+          "from-vega-blue-400 dark:from-vega-blue-600 to-20%  bg-highlight",
       },
     ]}
   ></Table>
