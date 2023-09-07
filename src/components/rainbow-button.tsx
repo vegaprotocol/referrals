@@ -8,6 +8,7 @@ type RainbowButtonProps = {
 export const RainbowButton = ({
   variant = "full",
   children,
+  className,
   ...props
 }: RainbowButtonProps & HTMLAttributes<HTMLButtonElement>) => (
   <button
@@ -16,7 +17,8 @@ export const RainbowButton = ({
       {
         "px-5 py-3 text-white": variant === "full",
         "p-[0.125rem]": variant === "border",
-      }
+      },
+      className
     )}
     {...props}
   >

@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { HTMLAttributes } from "react";
 
 export const Dude = ({ className }: HTMLAttributes<SVGElement>) => {
@@ -56,9 +57,14 @@ export const Wire = ({ className }: HTMLAttributes<SVGElement>) => {
   );
 };
 
-export const AnimatedDudeWithWire = () => (
+export const AnimatedDudeWithWire = ({ className }: { className?: string }) => (
   <div className="relative">
     <Wire className="absolute top-[25px]" />
-    <Dude className="absolute left-[96px] animate-[wave_20s_ease-in-out_infinite]" />
+    <Dude
+      className={classNames(
+        "absolute left-[96px] animate-[wave_20s_ease-in-out_infinite]",
+        className
+      )}
+    />
   </div>
 );
