@@ -3,7 +3,7 @@ import { AnimatedDudeWithWire } from "./graphics/dude";
 import { RainbowButton } from "./rainbow-button";
 
 const BANNER_BACKGROUND =
-  "bg-[url(sky-light.png)] dark:bg[url(sky-dark.png)] bg-[40%_0px] bg-[length:1440px] bg-no-repeat";
+  "bg-[url(sky-light.png)] dark:bg-[url(sky-dark.png)] bg-[40%_0px] bg-[length:1440px] bg-no-repeat";
 
 export const LandingBanner = () => (
   <div className={classNames("relative min-h-[680px] ", BANNER_BACKGROUND)}>
@@ -29,7 +29,7 @@ export const LandingBanner = () => (
         </p>
         <div className="mt-10 flex gap-3">
           <RainbowButton variant="border">Create a referral code</RainbowButton>
-          <RainbowButton>Apply a referral code</RainbowButton>
+          <RainbowButton variant="border">Apply a referral code</RainbowButton>
         </div>
       </div>
     </div>

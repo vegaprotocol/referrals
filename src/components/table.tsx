@@ -84,11 +84,10 @@ export const Table = ({
                   },
                   INNER_BORDER_STYLE,
                   {
-                    "md:border-none": !noCollapse && i === data.length - 1,
+                    "border-none": i === data.length - 1 && noCollapse,
+                    "md:border-none": i === data.length - 1,
                     "max-md:border-none":
-                      !noCollapse &&
-                      i === data.length - 1 &&
-                      j === columns.length - 1,
+                      i === data.length - 1 && j === columns.length - 1,
                   },
                   className
                 )}
