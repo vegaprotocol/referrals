@@ -4,3 +4,7 @@ export const GRADIENT =
 
 export const SKY_BACKGROUND =
   "bg-[url(sky-light.png)] dark:bg-[url(sky-dark.png)] bg-[40%_0px] bg-[length:1440px] bg-no-repeat";
+
+export const VEGA_DOCS_URL: string =
+  import.meta.env.VEGA_DOCS_URL || "https://docs.vega.xyz/mainnet";
+export const WALLET_DOCS_URL = `${VEGA_DOCS_URL}/concepts/vega-wallet`;
