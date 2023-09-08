@@ -20,6 +20,20 @@ export default {
         highlight:
           "linear-gradient(170deg, var(--tw-gradient-from), transparent var(--tw-gradient-to-position))",
       },
+      keyframes: {
+        ...theme.keyframes,
+        shake: {
+          "0%": { transform: "translateX(0)" },
+          "25%": { transform: "translateX(5px)" },
+          "50%": { transform: "translateX(-5px)" },
+          "75%": { transform: "translateX(5px)" },
+          "100%": { transform: "translateX(0)" },
+        },
+      },
+      animation: {
+        ...theme.animation,
+        shake: "shake 200ms linear",
+      },
     },
   },
   plugins, // [vegaCustomClasses]

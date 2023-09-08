@@ -3,6 +3,7 @@ import { AnimatedDudeWithWire } from "./graphics/dude";
 import { RainbowButton } from "./rainbow-button";
 import { useNavigate } from "react-router";
 import { SKY_BACKGROUND } from "../constants";
+import { ROUTES } from "../router-config";
 
 export const LandingBanner = () => {
   const navigate = useNavigate();
@@ -29,10 +30,16 @@ export const LandingBanner = () => {
             trading fees.
           </p>
           <div className="mt-10 flex gap-3">
-            <RainbowButton onClick={() => navigate("/create")} variant="border">
+            <RainbowButton
+              onClick={() => navigate(ROUTES.CREATE_CODE)}
+              variant="border"
+            >
               Create a referral code
             </RainbowButton>
-            <RainbowButton onClick={() => navigate("/apply")} variant="border">
+            <RainbowButton
+              onClick={() => navigate(ROUTES.APPLY_CODE)}
+              variant="border"
+            >
               Apply a referral code
             </RainbowButton>
           </div>
