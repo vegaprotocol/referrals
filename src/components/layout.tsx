@@ -1,9 +1,12 @@
 import classNames from "classnames";
 import { HTMLAttributes } from "react";
+import { SKY_BACKGROUND } from "../constants";
+import { Outlet } from "react-router-dom";
 
 export const Layout = ({
-  children,
   className,
+  children,
+  ...props
 }: HTMLAttributes<HTMLDivElement>) => {
   return (
     <div
@@ -13,8 +16,20 @@ export const Layout = ({
         "relative z-0",
         className
       )}
+      {...props}
     >
-      {children}
+      {children || <Outlet />}
+    </div>
+  );
+};
+
+export const LayoutWithSky = ({
+  className,
+  ...props
+}: HTMLAttributes<HTMLDivElement>) => {
+  return (
+    <div className={classNames("min-h-full", SKY_BACKGROUND)}>
+      <Layout className={className} {...props} />
     </div>
   );
 };

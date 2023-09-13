@@ -1,29 +1,42 @@
 import { RouteObject, createBrowserRouter } from "react-router-dom";
-import { ReferralsLandingPage } from "./pages/referrals-landing-page";
+import { Referrals } from "./pages/referrals";
 import { ErrorBoundary } from "./pages/error-boundary";
-import { ApplyCodePage } from "./pages/apply-code-page";
-import { CreateCodePage } from "./pages/create-code-page";
+import { LayoutWithSky } from "./components/layout";
+import { ApplyCodeForm } from "./components/apply-code-form";
+import { CreateCodeForm } from "./components/create-code-form";
+import { ReferralStatistics } from "./components/referral-statistics";
 
 export const ROUTES = {
-  REFERRALS_LANDING: "/",
-  APPLY_CODE: "/apply-code",
-  CREATE_CODE: "/create-code",
+  REFERRALS: "",
+  APPLY_CODE: "apply-code",
+  CREATE_CODE: "create-code",
 };
 
 export const routes: RouteObject[] = [
   {
-    path: ROUTES.REFERRALS_LANDING,
-    index: true,
-    element: <ReferralsLandingPage />,
+    path: "/",
+    element: <LayoutWithSky />,
     errorElement: <ErrorBoundary />,
-  },
-  {
-    path: ROUTES.APPLY_CODE,
-    element: <ApplyCodePage />,
-  },
-  {
-    path: ROUTES.CREATE_CODE,
-    element: <CreateCodePage />,
+    children: [
+      {
+        path: ROUTES.REFERRALS,
+        element: <Referrals />,
+        children: [
+          {
+            index: true,
+            element: <ReferralStatistics />,
+          },
+          {
+            path: ROUTES.CREATE_CODE,
+            element: <CreateCodeForm />,
+          },
+          {
+            path: ROUTES.APPLY_CODE,
+            element: <ApplyCodeForm />,
+          },
+        ],
+      },
+    ],
   },
 ];
 

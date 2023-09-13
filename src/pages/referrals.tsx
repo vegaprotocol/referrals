@@ -6,14 +6,30 @@ import {
 import classNames from "classnames";
 import { HowItWorksTable } from "../components/how-it-works-table";
 import { LandingBanner } from "../components/landing-banner";
-import { Layout } from "../components/layout";
 import { TiersTable } from "../components/tiers-table";
 import { BORDER_COLOR, GRADIENT } from "../constants";
 
-export const ReferralsLandingPage = () => (
-  <>
-    <LandingBanner />
-    <Layout>
+import { RainbowTabLink } from "../components/buttons";
+import { ROUTES } from "../router-config";
+import { Outlet } from "react-router-dom";
+import { Tag } from "../components/tag";
+
+export const Referrals = () => {
+  return (
+    <>
+      <LandingBanner />
+      <div>
+        <div className="flex justify-center">
+          <RainbowTabLink to={ROUTES.REFERRALS}>Your referrals</RainbowTabLink>
+          <RainbowTabLink to={ROUTES.CREATE_CODE}>
+            Your referrals
+          </RainbowTabLink>
+          <RainbowTabLink to={ROUTES.APPLY_CODE}>Apply a code</RainbowTabLink>
+        </div>
+        <div className="border-t border-b py-16 border-vega-cdark-500">
+          <Outlet />
+        </div>
+      </div>
       <div className="mt-10 mb-5 flex flex-row justify-between items-baseline">
         <h2 className="text-2xl">Referral tiers</h2>
         <span className="text-base">
@@ -46,9 +62,7 @@ export const ReferralsLandingPage = () => (
             <p className="text-base text-vega-clight-100 dark:text-vega-cdark-100">
               Stake a minimum of 100 $VEGA tokens
             </p>
-            <div className="mt-3 w-max border rounded-[1rem] border-vega-green-500 py-[0.125rem] px-2 text-xs text-vega-green-500">
-              Reward multiplier 1x
-            </div>
+            <Tag color="green">Reward multiplier 1x</Tag>
           </div>
         </div>
 
@@ -67,9 +81,7 @@ export const ReferralsLandingPage = () => (
             <p className="text-base text-vega-clight-100 dark:text-vega-cdark-100">
               Stake a minimum of 1000 $VEGA tokens
             </p>
-            <div className="mt-3 w-max border rounded-[1rem] border-vega-blue-500 py-[0.125rem] px-2 text-xs text-vega-blue-500">
-              Reward multiplier 2x
-            </div>
+            <Tag color="blue">Reward multiplier 2x</Tag>
           </div>
         </div>
         <div
@@ -87,9 +99,7 @@ export const ReferralsLandingPage = () => (
             <p className="text-base text-vega-clight-100 dark:text-vega-cdark-100">
               Stake a minimum of 10,000 $VEGA tokens
             </p>
-            <div className="mt-3 w-max border rounded-[1rem] border-vega-pink-500 py-[0.125rem] px-2 text-xs text-vega-pink-500">
-              Reward multiplier 3x
-            </div>
+            <Tag color="pink">Reward multiplier 3x</Tag>
           </div>
         </div>
       </div>
@@ -108,6 +118,6 @@ export const ReferralsLandingPage = () => (
           </TradingAnchorButton>
         </div>
       </div>
-    </Layout>
-  </>
-);
+    </>
+  );
+};

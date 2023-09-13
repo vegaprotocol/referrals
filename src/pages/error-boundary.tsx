@@ -1,9 +1,7 @@
 import { isRouteErrorResponse, useNavigate, useRouteError } from "react-router";
-import { Layout } from "../components/layout";
-import classNames from "classnames";
-import { SKY_BACKGROUND } from "../constants";
-import { RainbowButton } from "../components/rainbow-button";
+import { RainbowButton } from "../components/buttons";
 import { AnimatedDudeWithWire } from "../components/graphics/dude";
+import { LayoutWithSky } from "../components/layout";
 
 export const ErrorBoundary = () => {
   const error = useRouteError();
@@ -21,30 +19,28 @@ export const ErrorBoundary = () => {
   };
 
   return (
-    <div className={classNames("h-full", SKY_BACKGROUND)}>
-      <Layout className="py-32">
-        <div
-          aria-hidden
-          className="absolute top-64 right-[220px] md:right-[340px] max-sm:hidden"
+    <LayoutWithSky className="pt-32">
+      <div
+        aria-hidden
+        className="absolute top-64 right-[220px] md:right-[340px] max-sm:hidden"
+      >
+        <AnimatedDudeWithWire className="animate-spin" />
+      </div>
+      <h1 className="text-6xl font-alpha calt mb-10">{title}</h1>
+
+      {Object.keys(messages).includes(code.toString()) ? (
+        <p className="text-lg mb-10">{messages[code]}</p>
+      ) : null}
+
+      <p className="text-lg mb-10">
+        <RainbowButton
+          onClick={() => navigate("..")}
+          variant="border"
+          className="text-xs"
         >
-          <AnimatedDudeWithWire className="animate-spin" />
-        </div>
-        <h1 className="text-6xl font-alpha calt mb-10">{title}</h1>
-
-        {Object.keys(messages).includes(code.toString()) ? (
-          <p className="text-lg mb-10">{messages[code]}</p>
-        ) : null}
-
-        <p className="text-lg mb-10">
-          <RainbowButton
-            onClick={() => navigate("..")}
-            variant="border"
-            className="text-xs"
-          >
-            Go back and try again
-          </RainbowButton>
-        </p>
-      </Layout>
-    </div>
+          Go back and try again
+        </RainbowButton>
+      </p>
+    </LayoutWithSky>
   );
 };
