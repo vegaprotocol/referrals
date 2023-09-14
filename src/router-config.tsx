@@ -1,25 +1,30 @@
-import { RouteObject, createBrowserRouter } from "react-router-dom";
+import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import { Referrals } from "./pages/referrals";
 import { ErrorBoundary } from "./pages/error-boundary";
-import { LayoutWithSky } from "./components/layout";
+import { Layout, LayoutWithSky } from "./components/layout";
 import { ApplyCodeForm } from "./components/apply-code-form";
 import { CreateCodeForm } from "./components/create-code-form";
 import { ReferralStatistics } from "./components/referral-statistics";
 
 export const ROUTES = {
-  REFERRALS: "",
-  APPLY_CODE: "apply-code",
-  CREATE_CODE: "create-code",
+  TEAMS: "/teams",
+  REFERRALS: "/referrals",
+  APPLY_CODE: "/referrals/apply-code",
+  CREATE_CODE: "/referrals/create-code",
 };
 
 export const routes: RouteObject[] = [
   {
-    path: "/",
+    index: true,
+    errorElement: <ErrorBoundary />,
+    element: <Navigate to={ROUTES.REFERRALS} />,
+  },
+  {
+    path: ROUTES.REFERRALS,
     element: <LayoutWithSky />,
     errorElement: <ErrorBoundary />,
     children: [
       {
-        path: ROUTES.REFERRALS,
         element: <Referrals />,
         children: [
           {
@@ -35,6 +40,21 @@ export const routes: RouteObject[] = [
             element: <ApplyCodeForm />,
           },
         ],
+      },
+    ],
+  },
+  {
+    path: ROUTES.TEAMS,
+    element: <Layout />,
+    errorElement: <ErrorBoundary />,
+    children: [
+      {
+        index: true,
+        element: (
+          <div className="py-16 text-xs text-vega-clight-100 dark:text-vega-cdark-100">
+            👷‍♂️🚧 TEAMS
+          </div>
+        ),
       },
     ],
   },

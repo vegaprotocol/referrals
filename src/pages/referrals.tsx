@@ -20,7 +20,9 @@ export const Referrals = () => {
       <LandingBanner />
       <div>
         <div className="flex justify-center">
-          <RainbowTabLink to={ROUTES.REFERRALS}>Your referrals</RainbowTabLink>
+          <RainbowTabLink end to={ROUTES.REFERRALS}>
+            Your referrals
+          </RainbowTabLink>
           <RainbowTabLink to={ROUTES.CREATE_CODE}>
             Your referrals
           </RainbowTabLink>

@@ -2,6 +2,7 @@ import classNames from "classnames";
 import { HTMLAttributes } from "react";
 import { SKY_BACKGROUND } from "../constants";
 import { Outlet } from "react-router-dom";
+import { Navbar } from "./navbar";
 
 export const Layout = ({
   className,
@@ -9,17 +10,20 @@ export const Layout = ({
   ...props
 }: HTMLAttributes<HTMLDivElement>) => {
   return (
-    <div
-      className={classNames(
-        "max-w-[1440px]",
-        "mx-auto px-16 md:px-32 pb-32",
-        "relative z-0",
-        className
-      )}
-      {...props}
-    >
-      {children || <Outlet />}
-    </div>
+    <>
+      <Navbar />
+      <div
+        className={classNames(
+          "max-w-[1440px]",
+          "mx-auto px-16 md:px-32 pb-32",
+          "relative z-0",
+          className
+        )}
+        {...props}
+      >
+        {children || <Outlet />}
+      </div>
+    </>
   );
 };
 

@@ -11,6 +11,11 @@ export default {
   theme: {
     extend: {
       ...theme,
+      colors: {
+        transparent: "transparent",
+        current: "currentColor",
+        ...theme.colors,
+      },
       backgroundImage: {
         ...theme.backgroundImage,
         rainbow:
